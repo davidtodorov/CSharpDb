@@ -1,4 +1,5 @@
 ﻿using System;
+using P01_BillsPaymentSystem.Data;
 
 namespace StartUp
 {
@@ -6,7 +7,10 @@ namespace StartUp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var db = new BillsPaymentSystemContext())
+            {
+                db.Database.EnsureCreated();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using P01_BillsPaymentSystem.Data.EntityConfig;
 using P01_BillsPaymentSystem.Data.Models;
 
 namespace P01_BillsPaymentSystem.Data
@@ -27,13 +28,15 @@ namespace P01_BillsPaymentSystem.Data
         {
             if (!builder.IsConfigured)
             {
-                builder.UseSqlServer(Configuration.ConnectionString);
+                builder.UseSqlServer("Server.; Database=BillsPaymentSystem; Integrated security = true");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new BankAccountConfiguration());
+            modelBuilder.ApplyConfiguration(new CreditCardConfiguration());
+            modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
         }
     }
 }

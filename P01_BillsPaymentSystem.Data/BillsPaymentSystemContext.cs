@@ -28,7 +28,7 @@ namespace P01_BillsPaymentSystem.Data
         {
             if (!builder.IsConfigured)
             {
-                builder.UseSqlServer("Server.; Database=BillsPaymentSystem; Integrated security = true");
+                builder.UseSqlServer("Server = .; Database=BillsPaymentSystem; Integrated security = true");
             }
         }
 

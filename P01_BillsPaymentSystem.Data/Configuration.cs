@@ -6,6 +6,6 @@ namespace P01_BillsPaymentSystem.Data
 {
     internal class Configuration
     {
-        internal static string ConnectionString => "Server.; Database=BillsPaymentSystem; Integrated security = true";
+        internal static string ConnectionString => "Server = .; Database=BillsPaymentSystem; Integrated security = true";
     }
 }

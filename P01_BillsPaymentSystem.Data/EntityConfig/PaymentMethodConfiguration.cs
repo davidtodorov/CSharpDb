@@ -11,7 +11,28 @@ namespace P01_BillsPaymentSystem.Data.EntityConfig
     {
         public void Configure(EntityTypeBuilder<PaymentMethod> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasIndex(pm => new
+                {
+                    pm.UserId,
+                    pm.BankAccountId,
+                    pm.CreditCardId
+                }).IsUnique();
+
+            builder
+                .HasOne(pm => pm.User)
+                .WithMany(pm => pm.PaymentMethods)
+                .HasForeignKey(pm => pm.UserId);
+
+            builder
+                .HasOne(pm => pm.BankAccount)
+                .WithOne(pm => pm.PaymentMethod)
+                .HasForeignKey<PaymentMethod>(pm => pm.BankAccountId);
+
+            builder
+                .HasOne(pm => pm.CreditCard)
+                .WithOne(pm => pm.PaymentMethod)
+                .HasForeignKey<PaymentMethod>(pm => pm.CreditCardId);
         }
     }
 }

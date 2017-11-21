@@ -11,7 +11,10 @@ namespace P01_BillsPaymentSystem.Data.EntityConfig
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(u => u.UserId);
+            
+            
         }
     }
 }

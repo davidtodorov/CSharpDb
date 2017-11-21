@@ -11,7 +11,13 @@ namespace P01_BillsPaymentSystem.Data.EntityConfig
     {
         public void Configure(EntityTypeBuilder<CreditCard> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(c => c.CreditCardId);
+
+            builder.Ignore(c => c.LimitLeft);
+
+            builder.Ignore(c => c.PaymentMethodId);
+            
         }
     }
 }

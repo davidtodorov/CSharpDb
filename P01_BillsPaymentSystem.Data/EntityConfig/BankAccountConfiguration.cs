@@ -11,7 +11,10 @@ namespace P01_BillsPaymentSystem.Data.EntityConfig
     {
         public void Configure(EntityTypeBuilder<BankAccount> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(b => b.BankAccountId);
+
+            builder.Ignore(b => b.PaymentMethodId);
         }
     }
 }

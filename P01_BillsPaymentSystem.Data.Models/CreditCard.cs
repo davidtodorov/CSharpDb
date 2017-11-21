@@ -4,8 +4,15 @@ using System.Text;
 
 namespace P01_BillsPaymentSystem.Data.Models
 {
-    class CreditCard
+    public class CreditCard
     {
-        public int Type { get; set; }
+        public int CreditCardId { get; set; }
+        public decimal Limit { get; set; }
+        public decimal MoneyOwed { get; set; }
+        public decimal LimitLeft { get; set; }
+        public DateTime ExpirationDate { get; set; }
+
+        public int PaymentMethodId { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
     }
 }

@@ -5,13 +5,13 @@ using System.Text;
 
 namespace P01_BillsPaymentSystem.Data.Models
 {
-    class Users
+    public class User
     {
-
-        public Users()
+        public User()
         {
             PaymentMethods = new List<PaymentMethod>();
         }
+
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

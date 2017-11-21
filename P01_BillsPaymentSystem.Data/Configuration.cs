@@ -4,7 +4,8 @@ using System.Text;
 
 namespace P01_BillsPaymentSystem.Data
 {
-    class Configuration
+    internal class Configuration
     {
+        internal static string ConnectionString => "Server.; Database=BillsPaymentSystem; Integrated security = true";
     }
 }
